@@ -14,15 +14,15 @@ const Form = () => {
     e.preventDefault();
     if(!data) return;
     if(isUpdating){
-      console.log("Your old website url is ",oldWEebsieUrl)
-      console.log("updating your record....")
-      console.log(data);
+      // console.log("Your old website url is ",oldWEebsieUrl)
+      // console.log("updating your record....")
+      // console.log(data);
       updateRecord(oldWEebsieUrl,data)
       setIsUpdating(false);
     }
     else{
       addRecord(data);
-      console.log("Adding your record",data);
+      // console.log("Adding your record",data);
     }
 }
 // useEffect(()=>console.log(oldRecord),[oldRecord])

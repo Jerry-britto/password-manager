@@ -16,7 +16,10 @@ const App = () => {
   const addRecord = async (data) => {
     setRecords((prev) => [...prev, data]);
     try {
-      const res = await Axios.post("http://localhost:4000/api/addrecord", data);
+      const res = await Axios.post(
+        "https://password-manager-ten-sigma.vercel.app/api/addrecord",
+        data
+      );
       if (res.status != 200) {
         throw Error(res.data.message);
       }
@@ -33,7 +36,7 @@ const App = () => {
   const updateRecord = async (oldwebsiteurl, data) => {
     try {
       const res = await Axios.put(
-        `http://localhost:4000/api/updaterecord?websiteurl=${oldwebsiteurl}`,
+        `https://password-manager-ten-sigma.vercel.app/api/updaterecord?websiteurl=${oldwebsiteurl}`,
         data
       );
       if (res.status == 200) {
@@ -46,14 +49,16 @@ const App = () => {
   };
 
   const getRecord = async () => {
-    const res = await Axios.get("http://localhost:4000/api/getrecords");
+    const res = await Axios.get(
+      "https://password-manager-ten-sigma.vercel.app/api/getrecords"
+    );
     setRecords(res.data.data);
   };
   const deleteRecord = async (websiteurl) => {
     console.log(websiteurl);
     try {
       const res = await Axios.delete(
-        `http://localhost:4000/api/deleterecord?websiteurl=${websiteurl}`
+        `https://password-manager-ten-sigma.vercel.app/api/deleterecord?websiteurl=${websiteurl}`
       );
       if (res.status === 200) {
         toast.success(res.data.message);
